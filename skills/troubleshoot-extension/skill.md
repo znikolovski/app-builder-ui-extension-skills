@@ -34,7 +34,7 @@ presence (names only, not values) 4. Provide a **ranked hypothesis
 list** (most likely first). 5. Provide **step-by-step verification
 actions** and what "good" looks like. 6. Provide **fix guidance** that
 is: - Host-specific (CFE vs UE) - Environment-specific
-(dev/stage/prod) - Safe (no secret leakage)
+(dev/stage/prod) - Safe (no secret leakage).
 
 The agent SHOULD: - Include "known failure modes" and quick checks
 (e.g., missing scope, wrong org/project, stale deployment). - Suggest a

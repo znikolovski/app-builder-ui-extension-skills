@@ -15,7 +15,7 @@
 
 Use this skill after the extension passes `build-extension` (and ideally
 `validate-and-harden`) to: - Prepare production builds - Deploy/promote
-across environments - Produce release + rollback artifacts
+across environments - Produce release + rollback artifacts.
 
 ------------------------------------------------------------------------
 

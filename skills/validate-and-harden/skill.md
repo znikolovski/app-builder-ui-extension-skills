@@ -44,7 +44,7 @@ secrets or privileged tokens in the client.
 
 -   Built extension code or a description of current implementation
 -   Environments and SLO expectations (latency, uptime, usage volume)
--   Logging/telemetry requirements (if any)
+-   Logging/telemetry requirements (if any).
 
 ------------------------------------------------------------------------
 

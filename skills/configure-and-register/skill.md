@@ -6,7 +6,7 @@
 -   Version: 1.0.0
 -   Description: Applies and verifies App Builder + AEM host
     configuration, including extension manifests/registration,
-    environment variables, and host enablement steps for CFE/UE.
+    environment variables and host enablement steps for CFE/UE.
 -   Last Updated: 2026-02-12
 
 ------------------------------------------------------------------------

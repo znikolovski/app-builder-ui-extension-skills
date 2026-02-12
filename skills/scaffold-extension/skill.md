@@ -53,7 +53,7 @@ ones.
 The output MUST include: 1. Proposed folder structure 2. Files to add
 with short purpose statements 3. Minimal manifest/registration stubs
 needed to load the UI 4. "First-run" verification steps in the host
-editor
+editor.
 
 ------------------------------------------------------------------------
 

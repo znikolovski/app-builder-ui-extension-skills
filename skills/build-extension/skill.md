@@ -15,7 +15,7 @@
 
 Use this skill after `analyze-and-plan` and (optionally)
 `scaffold-extension` to: - Implement UI + actions - Wire host context to
-actions - Validate locally and in a dev host environment
+actions - Validate locally and in a dev host environment.
 
 ------------------------------------------------------------------------
 

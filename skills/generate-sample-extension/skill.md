@@ -32,7 +32,7 @@ action - Action returns deterministic data (e.g., echo/ping) safely 4.
 Include configuration/registration instructions sufficient to run: -
 app.config.yaml snippets - manifest/registration stubs as applicable -
 environment variables/secrets names (no values) 5. Provide run + test
-steps: - local dev run - host verification steps - basic smoke checks
+steps: - local dev run - host verification steps - basic smoke checks.
 
 The agent SHOULD: - Provide a patch-style "files to add/modify"
 output. - Keep dependencies minimal and avoid optional complexity. -
