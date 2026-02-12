@@ -3,7 +3,7 @@
 ## Metadata
 
 -   Name: troubleshoot-extension
--   Version: 1.1.0
+-   Version: 1.0.0
 -   Description: Diagnoses and resolves common issues when developing or
     running AEM UI Extensions (Content Fragment Editor or Universal
     Editor) backed by Adobe App Builder.
@@ -44,21 +44,6 @@ debugging.
 
 The agent MUST NOT: - Ask for secret values. - Suggest bypassing
 security controls to "make it work".
-
-------------------------------------------------------------------------
-
-## Known Failure Modes (UE + App Builder)
-
-Use this section to fast-path diagnosis. See `docs/knowledge-base.md` for
-details.
-
-| Symptom | Likely cause | Fix |
-|---------|--------------|-----|
-| Rail/panel not showing in UE | `register()` called on every render; relative panel URL | Wrap `register()` in `useEffect([])`; use absolute panel URL from `window.location` |
-| "Unexpected end of JSON input" | `JSON.parse()` on empty or non-JSON action response | Use safe parse (try/catch with fallback) in action invocation util |
-| 405 Method Not Allowed (deployed) | UI calls CDN origin `/api/...` instead of Runtime | Use build-generated `config.json` action URLs when not on localhost |
-| CORS blocked (localhost → adobeioruntime.net) | Direct Runtime call from localhost | Use same-origin URL on localhost; prefer `aio app dev` for local |
-| 405 on localhost | Wrong path: `default/package/action` | Local dev uses `package/action` (two segments); use `aio app dev` |
 
 ------------------------------------------------------------------------
 

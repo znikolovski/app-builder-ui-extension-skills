@@ -3,7 +3,7 @@
 ## Metadata
 
 -   Name: build-extension
--   Version: 1.4.0
+-   Version: 1.3.0
 -   Description: Implements and validates an AEM UI Extension (Content
     Fragment Editor or Universal Editor) using Adobe App Builder based
     on an approved plan.
@@ -39,8 +39,7 @@ When executing this skill, the agent MUST:
     -   Confirm the extension behaves correctly in the intended host
         (CFE or UE).
 6.  **Provide complete testing instructions**:
-    -   Local tests (use `aio app dev` for local action invocation),
-        action invocation tests, host integration steps.
+    -   Local tests, action invocation tests, host integration steps.
 
 The agent SHOULD: - Prefer small, composable modules. - Include robust
 error handling and user-friendly failure states. - Call out dependencies
@@ -49,44 +48,6 @@ on AEM APIs, CORS, allowlists, or permissions.
 The agent MUST NOT: - Introduce new extension points beyond the plan. -
 Store sensitive data in client-side state. - Assume production readiness
 (that is handled by `validate-and-harden` and `distribute-extension`).
-
-------------------------------------------------------------------------
-
-## Universal Editor: Required Patterns
-
-When building UE extensions, the agent MUST apply these patterns to avoid
-common failures:
-
-### Properties Rail registration
-
--   Wrap `register()` in `useEffect` with empty deps so it runs once.
-    Calling `register()` on every render causes duplicate registration
-    and unstable rails.
--   Use `addRails()` (not `getPanels()`). Each rail MUST have: `id`,
-    `header`, `url`, `icon`.
--   Panel `url` must be absolute and iframe-loadable. Build it from
-    `window.location.origin` + `pathname` + `#/route` for HashRouter.
-    Example: `` `${window.location.origin}${window.location.pathname || '/'}#/my-panel` ``
-
-### Action invocation from UI
-
--   **Local dev (localhost):** Use same-origin URL so the dev server
-    proxies to Runtime and avoids CORS:
-    `` `${origin}/api/v1/web/${package}/${action}` ``
-    Path format is **two segments**: package/action, NOT default/package/action.
--   **Deployed:** Use build-generated `config.json` (action URLs point
-    to Runtime). The build writes correct URLs; do not construct URLs
-    pointing to the CDN origin (causes 405).
--   **Prefer `aio app dev`** for local development: actions run locally,
-    no CORS, URL format is package/action. With `aio app run`, UI is
-    local but actions are on Runtime, so direct Runtime calls from
-    localhost hit CORS.
-
-### Action response handling
-
--   Use a safe JSON parse: action responses can be empty, HTML error
-    pages, or non-JSON. Wrapping `JSON.parse` in try/catch with a
-    fallback prevents "Unexpected end of JSON input" crashes.
 
 ------------------------------------------------------------------------
 

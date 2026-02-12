@@ -3,7 +3,7 @@
 ## Metadata
 
 -   Name: scaffold-extension
--   Version: 1.1.0
+-   Version: 1.0.0
 -   Description: Generates a minimal, host-specific scaffold for an AEM
     UI Extension (Content Fragment Editor or Universal Editor) inside an
     existing App Builder project.
@@ -25,11 +25,9 @@ The agent MUST: 1. Confirm the target host: **CFE** or **UE**. 2.
 Scaffold only what is required for the selected extension point(s). 3.
 Keep the scaffold minimal and easy to extend: - Separate UI extension
 code, shared utils, and backend actions. 4. Include placeholders for: -
-Host context extraction - Action invocation wrapper (with `getActionUrl`
-that switches local vs deployed; safe parse for responses) - Error
-boundary + loading states 5. Produce a patch-style output (what
-folders/files to add) rather than a large monolithic paste when
-possible.
+Host context extraction - Action invocation wrapper - Error boundary +
+loading states 5. Produce a patch-style output (what folders/files to
+add) rather than a large monolithic paste when possible.
 
 The agent SHOULD: - Provide a "first-run" checklist to verify the
 scaffold loads in the host. - Reference `docs/knowledge-base.md` for
@@ -38,18 +36,6 @@ host setup expectations.
 The agent MUST NOT: - Implement full business logic (that's
 `build-extension`). - Add extra extension points beyond the requested
 ones.
-
-------------------------------------------------------------------------
-
-## UE + App Builder: Utils to scaffold
-
-When scaffolding a UE extension that invokes actions, include:
-
--   **`getActionUrl(actionName)`** – Returns action URL. On localhost:
-    same-origin `/api/v1/web/${package}/${action}`. Otherwise: from
-    `config.json` (build-generated) with https upgrade if needed.
--   **`actionWebInvoke`** – POST/GET to action URL with safe JSON parse
-    (try/catch, fallback for empty/invalid responses).
 
 ------------------------------------------------------------------------
 
