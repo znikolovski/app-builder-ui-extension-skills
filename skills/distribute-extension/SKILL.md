@@ -5,9 +5,9 @@
 -   Name: distribute-extension
 -   Version: 1.3.0
 -   Description: Packages, deploys, and prepares an AEM UI Extension
-    (Content Fragment Editor or Universal Editor) built with App Builder
+    (Content Fragment Editor, Universal Editor, or Experience Hub) built with App Builder
     for distribution and promotion across environments.
--   Last Updated: 2026-02-12
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ When executing this skill, the agent MUST:
         correct.
 2.  **Confirm extension registration and visibility** in the target
     host:
-    -   Content Fragment Editor vs Universal Editor.
+    -   Content Fragment Editor vs Universal Editor vs Experience Hub.
 3.  **Provide environment-specific checklists**:
     -   IMS scopes, AEM permissions, CORS, allowlists, endpoints.
 4.  **Produce release documentation**:

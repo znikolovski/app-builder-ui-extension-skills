@@ -7,7 +7,7 @@
 -   Description: Implements and validates an AEM UI Extension (Content
     Fragment Editor or Universal Editor) using Adobe App Builder based
     on an approved plan.
--   Last Updated: 2026-02-12
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
@@ -37,10 +37,14 @@ When executing this skill, the agent MUST:
     key UI flows.
 5.  **Host-specific validation**:
     -   Confirm the extension behaves correctly in the intended host
-        (CFE or UE).
+        (CFE, UE, or Experience Hub).
 6.  **Provide complete testing instructions**:
     -   Local tests (use `aio app dev` for local action invocation),
         action invocation tests, host integration steps.
+
+**UI components:** Prefer React Spectrum (`@adobe/react-spectrum`) over
+custom DOM (raw tables, styled divs). Use `TableView`, `Button`, `Link`,
+`Flex`, `InlineAlert`, etc. for consistency with host UI and accessibility.
 
 The agent SHOULD: - Prefer small, composable modules. - Include robust
 error handling and user-friendly failure states. - Call out dependencies
@@ -51,6 +55,15 @@ Store sensitive data in client-side state. - Assume production readiness
 (that is handled by `validate-and-harden` and `distribute-extension`).
 
 ------------------------------------------------------------------------
+
+## Experience Hub: Required Patterns
+
+When building Experience Hub extensions (aem/launchpad/1), the agent MUST apply:
+
+-   **headerMenu.getButtons:** Return array of `{ id, label, icon, onClick }`. Wrap in `useEffect` with empty deps if using React.
+-   **Modal URL:** Build absolute URL for modal content, e.g. `${window.location.origin}${window.location.pathname || '/'}#/modal-route`.
+-   **attach in modal:** Modal content runs in iframe; use `attach({ id: extensionId })` to get connection and access `host.modal.close()`, `sharedContext`, `configuration`.
+-   **Configuration:** Key-value params from Extension Manager; read via `guestConnection.configuration`.
 
 ## Universal Editor: Required Patterns
 
@@ -114,7 +127,7 @@ The output MUST include:
     -   extension manifest/registration snippets (host-specific)
 5.  **Local Testing Instructions**
 6.  **Integration Testing Steps**
-    -   Host-specific checks for CFE vs UE
+    -   Host-specific checks for CFE vs UE vs Experience Hub
 7.  **Known Issues / Follow-ups**
 
 ------------------------------------------------------------------------
@@ -134,3 +147,9 @@ writing the selected suggestion back to the fragment. """
 extension. It should read the current authoring context from the host,
 fetch validation results from a backend action, and render a checklist
 with fix actions. """
+
+### Experience Hub
+
+""" Use build-extension to implement the planned Experience Hub
+extension with header menu button and modal. The modal should display
+shared context (aemHost, auth) and extension configuration. """

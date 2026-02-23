@@ -6,15 +6,15 @@
 -   Version: 1.3.0
 -   Description: Produces a complete technical architecture and
     execution plan for building an AEM UI Extension (Content Fragment
-    Editor or Universal Editor) using Adobe App Builder.
--   Last Updated: 2026-02-12
+    Editor, Universal Editor, or Experience Hub) using Adobe App Builder.
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
 ## When to use
 
-Use this skill **before any implementation** to: - Confirm which editor
-is targeted (**Content Fragment Editor** vs **Universal Editor**) and
+Use this skill **before any implementation** to: - Confirm which host
+is targeted (**Content Fragment Editor**, **Universal Editor**, or **Experience Hub**) and
 which extension points are in scope. - Produce a build-ready plan that
 downstream skills can execute without re-discovering requirements.
 
@@ -24,9 +24,11 @@ downstream skills can execute without re-discovering requirements.
 
 When executing this skill, the agent MUST:
 
-1.  **Identify the target editor(s)** up front:
-    -   Content Fragment Editor (CFE) extension, Universal Editor (UE)
-        extension, or both.
+1.  **Identify the target host(s)** up front:
+    -   Content Fragment Editor (CFE) extension
+    -   Universal Editor (UE) extension
+    -   Experience Hub (AEM Launchpad, `aem/launchpad/1`)
+    -   Or combination of the above
 2.  **Pin down extension points** and the host UI context they provide
     (selection, entity IDs, authoring context, events).
 3.  **Verify extension point feasibility**:
@@ -61,8 +63,8 @@ docs via the knowledge base.
 
 ## Required Inputs
 
--   Extension target: **Content Fragment Editor** or **Universal
-    Editor**
+-   Extension target: **Content Fragment Editor**, **Universal
+    Editor**, or **Experience Hub**
 -   Extension point(s) to use
 -   Business objective and user stories
 -   App Builder configuration (provided by the user)
@@ -77,7 +79,7 @@ The output MUST include:
 
 1.  **Executive Summary**
 2.  **Host & Extension Point Matrix**
-    -   Host: CFE / UE
+    -   Host: CFE / UE / Experience Hub
     -   Extension point(s)
     -   Context available from host
     -   UX affordances (where it shows up, user flow)
@@ -116,6 +118,20 @@ validate page content against a custom checklist and show actionable
 fixes. Backend actions should fetch validation rules from an internal
 service and optionally create tasks via a REST API. Environments: dev,
 stage, prod. The App Builder config will be provided. """
+
+### Experience Hub (AEM Launchpad)
+
+""" Use analyze-and-plan to design an App Builder app for an AEM Experience
+Hub extension. Add a header menu button that opens a modal to display
+AEM host context and extension configuration. Environments: dev, stage. """
+
+### Experience Hub (AEM Launchpad)
+
+""" Use analyze-and-plan to design an App Builder app for an AEM Experience
+Hub extension. Add a header menu button that opens a modal to display
+AEM host context and extension configuration. The extension should use
+headerMenu.getButtons and host.modal.showUrl. Environments: dev, stage.
+The App Builder config will be provided. """
 # Skill: analyze-and-plan
 
 ## Metadata
@@ -124,15 +140,15 @@ stage, prod. The App Builder config will be provided. """
 -   Version: 1.3.0
 -   Description: Produces a complete technical architecture and
     execution plan for building an AEM UI Extension (Content Fragment
-    Editor or Universal Editor) using Adobe App Builder.
--   Last Updated: 2026-02-12
+    Editor, Universal Editor, or Experience Hub) using Adobe App Builder.
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
 ## When to use
 
-Use this skill **before any implementation** to: - Confirm which editor
-is targeted (**Content Fragment Editor** vs **Universal Editor**) and
+Use this skill **before any implementation** to: - Confirm which host
+is targeted (**Content Fragment Editor**, **Universal Editor**, or **Experience Hub**) and
 which extension points are in scope. - Produce a build-ready plan that
 downstream skills can execute without re-discovering requirements.
 
@@ -142,9 +158,11 @@ downstream skills can execute without re-discovering requirements.
 
 When executing this skill, the agent MUST:
 
-1.  **Identify the target editor(s)** up front:
-    -   Content Fragment Editor (CFE) extension, Universal Editor (UE)
-        extension, or both.
+1.  **Identify the target host(s)** up front:
+    -   Content Fragment Editor (CFE) extension
+    -   Universal Editor (UE) extension
+    -   Experience Hub (AEM Launchpad, `aem/launchpad/1`)
+    -   Or combination of the above
 2.  **Pin down extension points** and the host UI context they provide
     (selection, entity IDs, authoring context, events).
 3.  **Verify extension point feasibility**:
@@ -179,8 +197,8 @@ docs via the knowledge base.
 
 ## Required Inputs
 
--   Extension target: **Content Fragment Editor** or **Universal
-    Editor**
+-   Extension target: **Content Fragment Editor**, **Universal
+    Editor**, or **Experience Hub**
 -   Extension point(s) to use
 -   Business objective and user stories
 -   App Builder configuration (provided by the user)
@@ -195,7 +213,7 @@ The output MUST include:
 
 1.  **Executive Summary**
 2.  **Host & Extension Point Matrix**
-    -   Host: CFE / UE
+    -   Host: CFE / UE / Experience Hub
     -   Extension point(s)
     -   Context available from host
     -   UX affordances (where it shows up, user flow)
@@ -234,3 +252,9 @@ validate page content against a custom checklist and show actionable
 fixes. Backend actions should fetch validation rules from an internal
 service and optionally create tasks via a REST API. Environments: dev,
 stage, prod. The App Builder config will be provided. """
+
+### Experience Hub (AEM Launchpad)
+
+""" Use analyze-and-plan to design an App Builder app for an AEM Experience
+Hub extension. Add a header menu button that opens a modal to display
+AEM host context and extension configuration. Environments: dev, stage. """

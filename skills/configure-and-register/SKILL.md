@@ -7,7 +7,7 @@
 -   Description: Applies and verifies App Builder + AEM host
     configuration, including extension manifests/registration,
     environment variables and host enablement steps for CFE/UE.
--   Last Updated: 2026-02-12
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ first-class, repeatable workflow.
 
 The agent MUST: 1. Treat configuration as environment-specific: -
 dev/stage/prod separation, secrets handled correctly. 2. Validate
-registration for the correct host: - CFE vs UE, and the correct
+registration for the correct host: - CFE vs UE vs Experience Hub, and the correct
 extension points. 3. Produce a checklist for host-side enablement where
 applicable. 4. Identify required scopes/permissions and map them to
 configuration entries. 5. Output "verify" steps that a developer can run
@@ -54,7 +54,7 @@ The agent MUST NOT: - Deploy production changes (that's
 
 ## Required Inputs
 
--   Target host: Content Fragment Editor or Universal Editor
+-   Target host: Content Fragment Editor, Universal Editor, or Experience Hub
 -   App Builder configuration from user (app.config.yaml + environment
     variables/secrets)
 -   Target environments (dev/stage/prod)
@@ -86,3 +86,9 @@ the target AEM environment. """
 """ Use configure-and-register to validate and update configuration for
 a Universal Editor UI extension. Include steps to confirm the extension
 points are registered and visible in the Universal Editor UI. """
+
+### Experience Hub
+
+""" Use configure-and-register to validate and update configuration for
+an Experience Hub extension. Include steps to register the extension
+via Extension Manager (BYO) and verify it appears in the Launchpad. """
