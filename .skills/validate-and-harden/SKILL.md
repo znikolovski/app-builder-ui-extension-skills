@@ -7,7 +7,7 @@
 -   Description: Performs a production-readiness review of an AEM UI
     Extension built with App Builder, focusing on security, performance,
     observability, and operational resilience.
--   Last Updated: 2026-02-12
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 

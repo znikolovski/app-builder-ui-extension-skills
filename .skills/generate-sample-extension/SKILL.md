@@ -8,7 +8,7 @@
     UI Extension (Content Fragment Editor or Universal Editor) using an
     existing App Builder project, including minimal UI + backend
     action + configuration guidance.
--   Last Updated: 2026-02-12
+-   Last Updated: 2026-02-13
 
 ------------------------------------------------------------------------
 
@@ -24,11 +24,12 @@ environment/registration correctness.
 ## Agent Behavior Instructions
 
 The agent MUST: 1. Confirm the target host: - **Content Fragment
-Editor** (CFE) or **Universal Editor** (UE). 2. Confirm the sample type
+Editor** (CFE), **Universal Editor** (UE), or **Experience Hub**. 2. Confirm the sample type
 (choose one): - "Hello World" UI-only extension (no backend) - UI +
 backend action roundtrip (recommended) 3. Generate a **minimal but
-complete** example: - UI renders in host - UI invokes an App Builder
-action - Action returns deterministic data (e.g., echo/ping) safely 4.
+complete** example: - UI renders in host using React Spectrum components
+(not raw DOM) - UI invokes an App Builder action - Action returns
+deterministic data (e.g., echo/ping) safely 4.
 Include configuration/registration instructions sufficient to run: -
 app.config.yaml snippets - manifest/registration stubs as applicable -
 environment variables/secrets names (no values) 5. Provide run + test
@@ -47,7 +48,7 @@ and document it.
 
 ## Required Inputs
 
--   Host: Content Fragment Editor or Universal Editor
+-   Host: Content Fragment Editor, Universal Editor, or Experience Hub
 -   Preferred sample type: UI-only or UI+action roundtrip
 -   App Builder configuration (or confirmation it will be supplied)
 -   Target environment for verification (dev recommended)
@@ -81,3 +82,10 @@ side panel sample extension: - Renders a panel with a 'Ping' button -
 Button calls a backend action and displays the returned message Include
 registration/config guidance and verification steps for the Universal
 Editor UI. """
+
+### Experience Hub
+
+""" Use generate-sample-extension to create a working Experience Hub
+sample: header menu button that opens a modal showing aemHost and
+configuration from sharedContext. Include BYO registration steps for
+Extension Manager. """
